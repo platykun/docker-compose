@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  docker-knowledge:
+    image: koda/docker-knowledge
+    volumes: 
+      - /home/hoge/knowledge/:/root/.knowledge
+#    ports:
+#      - 8080:8080
+    restart: always
+    expose: ["8080"]
+    environment:
+      VIRTUAL_HOST: knowledge.sanaudon.com
+  
+networks:
+  default:
+    external:
+      name: shared
+
+
